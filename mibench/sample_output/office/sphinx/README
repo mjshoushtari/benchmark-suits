@@ -1,0 +1,172 @@
+Currently, the option that we give to sphinx for the verbosity level is
+"-verbose 10".  This creates a lot of system calls that we don't think
+are necessary.  Therefore, we have changed it to "-verbose 2".  This will be
+reflected in future releases of MiBench.
+
+This switch change prevents the output that is listed below from being printed.
+Thus, the only output that you will be able to compare against, when using
+only the "verbose -2" switch, will be in the file FOO that repeats the phrase
+"GO FORWARD TEN METERS" several times.
+
+
+-----------------------------------------
+Output similar to this, along with the file FOO, is produced when run with 
+the "-verbose 10" flag.
+
+../src/examples/sphinx2-continuous \
+ -adcin TRUE \
+ -adcext 16k \
+ -ctloffset 0 \
+ -ctlcount 100000000 \
+ -agcmax FALSE \
+ -langwt 6.5 \
+ -fwdflatlw 8.5 \
+ -rescorelw 9.5 \
+ -ugwt 0.5 \
+ -fillpen 1e-10 \
+ -silpen 0.005 \
+ -inspen 0.65 \
+ -top 1 \
+ -topsenfrm 3 \
+ -topsenthresh \
+ -70000 \
+ -beam 2e-06 \
+ -npbeam 2e-06 \
+ -lpbeam 2e-05 \
+ -lponlybeam 0.0005 \
+ -nwbeam 0.0005 \
+ -fwdflat FALSE \
+ -fwdflatbeam 1e-08 \
+ -fwdflatnwbeam 0.0003 \
+ -bestpath TRUE \
+ -kbdumpdir ../model/lm/turtle \
+ -lmfn ../model/lm/turtle/turtle.lm \
+ -dictfn ../model/lm/turtle/turtle.dic \
+ -noisedict ../model/hmm/6k/noisedict \
+ -phnfn ../model/hmm/6k/phone \
+ -mapfn ../model/hmm/6k/map \
+ -hmmdir ../model/hmm/6k \
+ -hmmdirlist ../model/hmm/6k \
+ -8bsen TRUE \
+ -sendumpfn ../model/hmm/6k/sendump \
+ -cbdir ../model/hmm/6k \
+ -matchfn FOO \
+ -ctlfn bigtest.ctl \
+ -datadir ./ \
+ -verbose 10 
+
+sling
+Tue Mar 19 13:25:52 EST 2002
+
+
+INFO: fbs_main.c(1077): libfbs/main COMPILED ON: Mar 19 2002, AT: 12:21:58
+
+kb_main.c(347): Reading phone file [../model/hmm/6k/phone]
+Using 0 phonological mappings
+kb_main.c(356): Reading map file [../model/hmm/6k/map]
+Read Map: 125716 phones map to 23355 unique senone sequences
+kb_main.c(360): Reading dict file [../model/lm/turtle/turtle.dic]
+dict_load: first line of ../model/lm/turtle/turtle.dic was A, expecting 
+'!'
+dict_load: will assume first line contains a word
+   111 = words in file [../model/lm/turtle/turtle.dic]
+LEFT CONTEXT TABLES
+Entry Context table contains
+	    76 entries
+	  3876 possible cross word triphones.
+	  3268 triphones
+	   608 pseudo diphones
+	     0 uniphones
+Exit Context table contains
+	    76 entries
+	  3876 possible cross word triphones.
+	  3268 triphones
+	   608 pseudo diphones
+	     0 uniphones
+	  1605 right context entries
+	    21 ave entries per exit context
+RIGHT CONTEXT TABLES
+Entry Context table contains
+	    65 entries
+	  3315 possible cross word triphones.
+	  2730 triphones
+	   585 pseudo diphones
+	     0 uniphones
+Exit Context table contains
+	    65 entries
+	  3315 possible cross word triphones.
+	  2730 triphones
+	   585 pseudo diphones
+	     0 uniphones
+	  1625 right context entries
+	    25 ave entries per exit context
+    0 unique triphones were mapped to ci phones
+lm_3g.c(833): Reading LM file ../model/lm/turtle/turtle.lm (name "")
+lm_3g.c(864): ngrams 1=91, 2=212, 3=177
+lm_3g.c(872): 114 words in dictionary
+lm_3g.c(1406): Looking for precompiled LM dump file 
+../model/lm/turtle/turtle.lm.DMP
+lm_3g.c(1410): Precompiled file not found; continue with LM file
+lm_3g.c(522): Reading unigrams
+      91 = #unigrams created
+lm_3g.c(567): Reading bigrams
+
+     212 = #bigrams created
+      20 = #prob2 entries
+      12 = #bo_wt2 entries
+lm_3g.c(647): Reading trigrams
+
+     177 = #trigrams created
+      12 = #prob3 entries
+lm_3g.c(1043): bo_wt(</s>) changed from -0.3010 to -99.0000
+lm_3g.c(1049): prob(<s>) changed from -0.9129 to -99.0000
+    6.50 = Language Weight
+    0.50 = Unigram Weight
+   -4308 = LOG (Insertion Penalty (0.65))
+lm_3g.c(1194): LM("") added
+lm_3g.c(1124): Adding 0 initial OOV words to LM
+hmm_tied_r.c(253): Loading HMMs from dump file ../model/hmm/6k/sendump
+hmm_tied_r.c(263): BEGIN FILE FORMAT DESCRIPTION
+SCVQInit: top 1, 6255 models, 1 dist, 0.000100 var floor.
+cep_rw.c(138): Byte reversing ../model/hmm/6k/cep.256.vec
+cep_rw.c(138): Byte reversing ../model/hmm/6k/cep.256.var
+sc_vq.c(1611): Quantizing senone PDFs to 8 bits
+cep_rw.c(138): Byte reversing ../model/hmm/6k/d2cep.256.vec
+cep_rw.c(138): Byte reversing ../model/hmm/6k/d2cep.256.var
+sc_vq.c(1611): Quantizing senone PDFs to 8 bits
+cep_rw.c(138): Byte reversing ../model/hmm/6k/p3cep.256.vec
+cep_rw.c(138): Byte reversing ../model/hmm/6k/p3cep.256.var
+sc_vq.c(1611): Quantizing senone PDFs to 8 bits
+cep_rw.c(138): Byte reversing ../model/hmm/6k/xcep.256.vec
+cep_rw.c(138): Byte reversing ../model/hmm/6k/xcep.256.var
+sc_vq.c(1611): Quantizing senone PDFs to 8 bits
+search.c(3227): Estimating maximal search tree
+search.c(3339): max nonroot chan increased to 350
+search.c(3349):   73 root, 222 non-root channels, 6 single-phone 
+search.c(1784): topsen-window = 3, threshold = -70000
+ -608104 = new word beam width
+-1049840 = new phone beam width
+ -865624 = last phone beam width
+ -608104 = Last phone alone beam width
+  -52986 = LOG (Silence Word Penalty) + LOG (Phone Penalty)
+ -230270 = LOG (Filler Word Penalty) + LOG (Phone Penalty)
+       0 = newword penalty
+search.c(2764): LW = fwdtree: 6.5, fwdflat: 8.5, bestpath: 9.5
+search.c(3778): Flat-pass bw = 1.0e-08 (-1473728), nwbw = 3.0e-04 
+(-648968)
+INFO: live_norm.c(132): mean[0]= 8.00, mean[1..12]= 0.0
+search.c(3225): Creating search tree
+search.c(3349):   73 root, 222 non-root channels, 6 single-phone words
+INFO: uttproc.c(1443): LM= ""
+search.c(1876): startword= <s> (id= 112)
+INFO: fbs_main.c(1217): libfbs/main COMPILED ON: Mar 19 2002, AT: 12:21:58
+
+
+Utterance: bigtest
+search.c(1876): startword= <s> (id= 112)
+fbs_main.c(1421): fopen(.//bigtest.16k,rb) failed
+
+TOTAL Elapsed time 0.00 seconds
+TOTAL CPU time 0.00 seconds
+TOTAL Speech 0.00 seconds
+

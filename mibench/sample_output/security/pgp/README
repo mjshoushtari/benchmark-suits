@@ -1,0 +1,6 @@
+Note:  These output files are actually generated in the pgp/tests 
+folder, not the standard benchmark root folder.
+
+Note2:  The file names match up with files that are currently already 
+included in the pgp/tests folder.  These files are actually one and the 
+same.
