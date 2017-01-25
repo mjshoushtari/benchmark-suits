@@ -3,34 +3,8 @@ TARGET = RAYTRACE
 OBJS = bbox.o cr.o env.o fbuf.o geo.o huprn.o husetup.o hutv.o isect.o \
 	main.o matrix.o memory.o poly.o raystack.o shade.o sph.o trace.o \
 	tri.o workpool.o
-LDFLAGS = -lmpc -lm
-MACROS = ../../null_macros/c.m4.null
-CFLAGS = -cckr -O2 -Olimit 1500
 
-x = *
-
-$(TARGET): $(OBJS)
-	cc $(OBJS) $(CFLAGS) -o $(TARGET) $(LDFLAGS)
-
-
-M4 = -m4 -Uindex -Ulen
-RM = -rm -f
-
-.SUFFIXES:
-.SUFFIXES:      .o .c .C .h .H
-
-.H.h:
-	$(M4) ${MACROS} $*.H > $*.h
-
-.C.c:
-	$(M4) $(MACROS) $*.C > $*.c
-
-.c.o:
-	cc -c $(CFLAGS) $*.c
-
-.C.o:
-	$(M4) $(MACROS) $*.C > $*.c
-	cc -c $(CFLAGS) $*.c
+include ../../Makefile.config
 
 bbox.c: bbox.C rt.h
 cr.c:	cr.C rt.h
